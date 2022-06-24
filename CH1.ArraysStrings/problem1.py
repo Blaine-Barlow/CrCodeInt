@@ -24,6 +24,7 @@ def isUnique2(input):
     Space O(n) 
     Time O(n) 
     """
+    ## add check for maximum string length vs maximum amount of characters allowed in language. 
     hashtable = {}
     for i in input:
         if i in hashtable.keys():
@@ -59,3 +60,10 @@ if __name__ == "__main__":
     if not isUnique2("!@#$^&*sEmx"):
         print("Test 4 Failed: input = '!@#$^&*sEmx' expected True")
     print("*****End of tests attempt 2*****")
+    
+    
+    
+    
+# Notes from after reading solution. 
+# didnt think about max characters available based on language or ASCII. there are max unique characters. 
+# need to check if length greater than char list otherwise my solution is similar. 
