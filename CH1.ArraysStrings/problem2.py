@@ -68,3 +68,5 @@ if __name__ == "__main__":
     print("*****End of Tests on Attempt 2*****")
 
 
+# Notes after looking at solutions: 
+# solution is similar to 2nd attempt. good idea. need a bit more work on planning i think 
