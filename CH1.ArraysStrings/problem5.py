@@ -21,13 +21,33 @@ def oneAway(s1, s2):
     second = s2.lower()
     if abs(len(first) - len(second)) > 1:
         return False
-    return True
+    elif abs(len(first) - len(second)) == 0:
+        return replace(first, second)
+    else:
+        return oneEdit(first, second)
 
 def replace(s1, s2):
-    return False
+    firstDifference = False
+    for i in range(len(s1)):
+        if s1[i] != s2[i]:
+            if firstDifference:
+                return False
+            firstDifference = True
+    return True
 
 def oneEdit(s1, s2):
-    return False
+    # one edit is when the length of strings are off by 1. so an add or a delete.
+    s1Index = 0
+    s2Index = 0
+    while s1Index < len(s1) and s2Index < len(s2):
+        if s1[s1Index] != s2[s2Index]:
+            if s1Index != s2Index:
+                return False
+            s2Index += 1
+        else:
+            s1Index += 1
+            s2Index += 1
+    return True
 
 if __name__ == "__main__":
     print("*****Start of tests for oneAway*****")
@@ -38,6 +58,19 @@ if __name__ == "__main__":
     if oneAway("pale", "pe"):
         print("Test 2 Error: strings of length difference > 1 returned true")
     # Test 3
-    
+    if not oneAway("pale", "bale"):
+        print("Test 3 Error: replace returned false when it is one away")
+    # Test 4 
+    if oneAway("pale", "bald"):
+        print("Test 4 Error: returned true when 2 replaces exist.")
+    # Test 5
+    if not oneAway("pale", "pales"):
+        print("Test 5 Error: Add one returned false")
+    # Test 6
+    if not oneAway("pales", "pale"):
+        print("Test 6 Error: remove one returned false")
+    # Test 7
+    if oneAway("exit", "pal"):
+        print("Test 7 Error: returned true when more than one edit required")
     
     print("*****End of tests for oneAway*****")
