@@ -1,25 +1,25 @@
 version: "3.9"
 services:
-  mono_1:
-    image: mono:latest
-    container_name: mono_1
-    volumes: 
-      - /home/blaine/Desktop/CrCodeInt:/code
-    stdin_open: true
-    tty: true
-  java_1:
-    image: openjdk:latest
-    container_name: java_1
-    command: ["/bin/bash"]
-    volumes: 
-      - /home/blaine/Desktop/CrCodeInt:/code
-    stdin_open: true
-    tty: true
+  # mono_1:
+  #   image: mono:latest
+  #   container_name: mono_1
+  #   volumes: 
+  #     - /home/blaine/Desktop/CrCodeInt:/code
+  #   stdin_open: true
+  #   tty: true
+  # java_1:
+  #   image: openjdk:latest
+  #   container_name: java_1
+  #   command: ["/bin/bash"]
+  #   volumes: 
+  #     - /home/blaine/Desktop/CrCodeInt:/code
+  #   stdin_open: true
+  #   tty: true
   python:
     image: python:latest
     container_name: python_1
     command: ["/bin/bash"]
     volumes:
-      - /home/blaine/Desktop/CrCodeInt:/code
+      - ./:/code
     stdin_open: true
     tty: true
